@@ -30,6 +30,8 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 內容是看這 https://www.youtube.com/watch?v=vb6b67HiuC8
 
+2022/7/30
+
 - (valueChange)="sendCurrency($event)"事件綁定
 
   ```typescript
@@ -70,3 +72,5 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 - `<mat-form-field appearance="outline">`可變更樣式>https://material.angular.io/components/form-field/overview
 
 -
+
+2022/7/30
