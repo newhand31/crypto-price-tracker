@@ -2,8 +2,11 @@
   <mat-toolbar>
     <span>Crypto Info</span>
     <span class="example-spacer"></span>
-    <mat-form-field>
-      <mat-select [(ngModel)]="selectCurrency">
+    <mat-form-field appearance="outline">
+      <mat-select
+        (valueChange)="sendCurrency($event)"
+        [(ngModel)]="selectCurrency"
+      >
         <mat-option selected value="NTD">NTD/台幣</mat-option>
         <mat-option value="USD">USD/美元</mat-option>
       </mat-select>

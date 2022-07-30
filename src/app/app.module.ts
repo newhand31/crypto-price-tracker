@@ -11,10 +11,14 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { CoinListComponent } from './coin-list/coin-list.component';
+import { CoinDetailComponent } from './coin-detail/coin-detail.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CoinListComponent,
+    CoinDetailComponent
   ],
   imports: [
     BrowserModule,

@@ -8,4 +8,11 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'crypto-price-tracker';
   selectCurrency: string = "NTD";
+  constructor() {
+
+  }
+
+  sendCurrency(event: string) {
+    console.log(event);
+  }
 }
