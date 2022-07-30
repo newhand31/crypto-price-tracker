@@ -27,7 +27,7 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
 學習 angular 筆記
-內容是看這 youtube.com/watch?v=vb6b67HiuC8
+內容是看這 https://www.youtube.com/watch?v=vb6b67HiuC8
 
 - (valueChange)="sendCurrency($event)"事件綁定
 
