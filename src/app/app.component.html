@@ -1,22 +1,20 @@
 <!-- 工具列 -->
-<p>
-  <mat-toolbar>
-    <span>Crypto Info</span>
-    <span class="example-spacer"></span>
-    <!-- appearance="outline"可變更樣式>https://material.angular.io/components/form-field/overview -->
-    <mat-form-field appearance="outline">
-      <!-- (valueChange)事件綁定 -->
-      <!-- ngModel雙向綁定，要到app.module去import { FormsModule } from '@angular/forms'; -->
-      <mat-select
-        (valueChange)="sendCurrency($event)"
-        [(ngModel)]="selectCurrency"
-      >
-        <mat-option selected value="NTD">NTD/台幣</mat-option>
-        <mat-option value="USD">USD/美元</mat-option>
-      </mat-select>
-    </mat-form-field>
-  </mat-toolbar>
-</p>
+<mat-toolbar>
+  <span>Crypto Info</span>
+  <span class="example-spacer"></span>
+  <!-- appearance="outline"可變更樣式>https://material.angular.io/components/form-field/overview -->
+  <mat-form-field appearance="outline">
+    <!-- (valueChange)事件綁定 -->
+    <!-- ngModel雙向綁定，要到app.module去import { FormsModule } from '@angular/forms'; -->
+    <mat-select
+      (valueChange)="sendCurrency($event)"
+      [(ngModel)]="selectCurrency"
+    >
+      <mat-option selected value="NTD">NTD/台幣</mat-option>
+      <mat-option value="USD">USD/美元</mat-option>
+    </mat-select>
+  </mat-form-field>
+</mat-toolbar>
 <!-- 工具列END -->
 
 <!-- app-routing.module.ts設定路由 -->
