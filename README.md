@@ -76,3 +76,5 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 2022/7/31
 
 - 新增 Banner 的 html，scss(add banner's html and scss)
+
+- HttpClient compiler 時會錯誤，後來 import HttpClientModule 後 compiler 正常
