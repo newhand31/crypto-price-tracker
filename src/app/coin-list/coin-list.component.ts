@@ -1,5 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
 import { ApiService } from '../service/api/api.service';
+
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
+
 
 @Component({
   selector: 'app-coin-list',
@@ -8,30 +13,44 @@ import { ApiService } from '../service/api/api.service';
 })
 export class CoinListComponent implements OnInit {
 
+  //屬性
+  bannerData: any = [];
+
+  displayedColumns: string[] = ['symbol', 'current_price', 'price_change_percentage_24h', 'market_cap'];
+  dataSource!: MatTableDataSource<any>;
+
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
+  //屬性END
+
   constructor(private api: ApiService) { }
 
   ngOnInit(): void {
-    this.getBannerData();
     this.getAllData();
+    this.getBannerData();
   }
 
-  getBannerData() {
-    this.api.getTrendingCurrency("NTD")
-      .subscribe({
-        next: (res) => {
-          console.log(res);
-        },
-        error: () => {
-          console.log("error!!");
-        }
-      })
-  }
+  // Table功能
 
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
+  }
+  // Table功能END
+
+  // API取DATA
   getAllData() {
-    this.api.getCurrency("NTD")
+    this.api.getCurrency("INR")
       .subscribe({
         next: (res) => {
           console.log(res);
+          this.dataSource = new MatTableDataSource(res);
+          this.dataSource.paginator = this.paginator;
+          this.dataSource.sort = this.sort;
         }
         ,
         error: () => {
@@ -39,4 +58,20 @@ export class CoinListComponent implements OnInit {
         }
       })
   }
+
+  getBannerData() {
+    this.api.getTrendingCurrency("INR")
+      .subscribe({
+        next: (res) => {
+          console.log(res);
+          this.bannerData = res;
+        },
+        error: () => {
+          console.log("error!!");
+        }
+      })
+  }
+  // API取DATA END
+
+
 }
