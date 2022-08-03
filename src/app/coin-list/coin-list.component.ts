@@ -4,6 +4,7 @@ import { ApiService } from '../service/api/api.service';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { Route, Router } from '@angular/router';
 
 
 @Component({
@@ -23,7 +24,7 @@ export class CoinListComponent implements OnInit {
   @ViewChild(MatSort) sort!: MatSort;
   //屬性END
 
-  constructor(private api: ApiService) { }
+  constructor(private api: ApiService, private router: Router) { }
 
   ngOnInit(): void {
     this.getAllData();
@@ -72,6 +73,8 @@ export class CoinListComponent implements OnInit {
       })
   }
   // API取DATA END
-
+  gotoDetails(row: any) {
+    this.router.navigate(['coin-detail', row.id]);
+  }
 
 }
