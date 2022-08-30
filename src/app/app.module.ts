@@ -18,6 +18,11 @@ import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatIconModule } from '@angular/material/icon';
+
+
 
 import { NgChartsModule } from 'ng2-charts';
 
@@ -42,6 +47,10 @@ import { NgChartsModule } from 'ng2-charts';
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
+    MatSidenavModule,
+    MatDividerModule,
+    MatIconModule,
+
 
     NgChartsModule,
   ],

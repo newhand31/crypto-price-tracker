@@ -5,6 +5,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Route, Router } from '@angular/router';
+import { CurrencyService } from '../service/currency/currency.service';
 
 
 @Component({
@@ -16,7 +17,7 @@ export class CoinListComponent implements OnInit {
 
   //屬性
   bannerData: any = [];
-
+  currency: string = "USD";
   displayedColumns: string[] = ['symbol', 'current_price', 'price_change_percentage_24h', 'market_cap'];
   dataSource!: MatTableDataSource<any>;
 
@@ -24,11 +25,17 @@ export class CoinListComponent implements OnInit {
   @ViewChild(MatSort) sort!: MatSort;
   //屬性END
 
-  constructor(private api: ApiService, private router: Router) { }
+  constructor(private api: ApiService, private router: Router, private currencyService: CurrencyService) { }
 
   ngOnInit(): void {
     this.getAllData();
     this.getBannerData();
+    this.currencyService.getCurrency()
+      .subscribe(val => {
+        this.currency = val;
+        this.getAllData();
+        this.getBannerData();
+      });
   }
 
   // Table功能
@@ -45,7 +52,7 @@ export class CoinListComponent implements OnInit {
 
   // API取DATA
   getAllData() {
-    this.api.getCurrency("INR")
+    this.api.getCurrency(this.currency)
       .subscribe({
         next: (res) => {
           console.log(res);
@@ -61,7 +68,7 @@ export class CoinListComponent implements OnInit {
   }
 
   getBannerData() {
-    this.api.getTrendingCurrency("INR")
+    this.api.getTrendingCurrency(this.currency)
       .subscribe({
         next: (res) => {
           console.log(res);

@@ -26,11 +26,13 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
+---
+
 ## 學習 angular 筆記
 
 內容是看這 https://www.youtube.com/watch?v=vb6b67HiuC8
 
-2022/7/30
+### 2022/7/30
 
 - (valueChange)="sendCurrency($event)"事件綁定
 
@@ -73,8 +75,15 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 -
 
-2022/7/31
+### 2022/7/31
 
 - 新增 Banner 的 html，scss(add banner's html and scss)
 
 - HttpClient compiler 時會錯誤，後來 import HttpClientModule 後 compiler 正常
+
+### 20220824 安裝 tailwindcss
+
+```
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init
+```

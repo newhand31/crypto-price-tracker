@@ -1,5 +1,23 @@
 <!-- 工具列 -->
 <mat-toolbar>
+  <button
+    mat-icon-button
+    class="example-icon"
+    aria-label="Example icon-button with menu icon"
+  >
+    <mat-icon
+      class="mat-18"
+      (click)="this.sideNav.open()"
+      *ngIf="!sideNav?.opened"
+      >menu</mat-icon
+    >
+    <mat-icon
+      class="mat-18"
+      (click)="this.sideNav.close()"
+      *ngIf="sideNav?.opened"
+      >close</mat-icon
+    >
+  </button>
   <span>Crypto Info</span>
   <span class="example-spacer"></span>
   <!-- appearance="outline"可變更樣式>https://material.angular.io/components/form-field/overview -->
@@ -11,12 +29,31 @@
       (valueChange)="sendCurrency($event)"
       [(ngModel)]="selectCurrency"
     >
-      <mat-option selected value="INR">INR/印度盧比</mat-option>
-      <mat-option value="USD">USD/美元</mat-option>
+      <mat-option selected value="USD">USD/美元</mat-option>
+      <mat-option value="INR">INR/印度盧比</mat-option>
     </mat-select>
   </mat-form-field>
 </mat-toolbar>
+<!-- Side Bar 側邊攔 -->
+<mat-sidenav-container>
+  <mat-sidenav #sideNav="matSidenav">
+    <img
+      src="https://cdn4.vectorstock.com/i/thumb-large/50/08/news-alerts-breaking-logo-tv-design-element-vector-24575008.jpg"
+      alt=""
+      class="avatar mat-elavation-z8"
+    />
+    <h4>Side Bar</h4>
+    <mat-divider></mat-divider>
+    <mat-icon>event_note</mat-icon>
+    <button mat-button class="menu-button"><span>ABC NEWS</span></button>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+<!-- Side Bar 側邊攔 END -->
 <!-- 工具列END -->
-
 <!-- app-routing.module.ts設定路由 -->
-<router-outlet></router-outlet>
+
+<!-- 測試tailwind CSS -->
+<!-- <h1 class="text-3xl text-red-400 font-bold underline">Hello world!</h1> -->
