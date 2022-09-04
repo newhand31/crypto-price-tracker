@@ -81,9 +81,13 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 - HttpClient compiler 時會錯誤，後來 import HttpClientModule 後 compiler 正常
 
-### 20220824 安裝 tailwindcss
+### 2022/08/24 安裝 tailwindcss
 
 ```
 npm install -D tailwindcss postcss autoprefixer
 npx tailwindcss init
 ```
+
+### 2022/09/4 串接 news API
+
+1.側邊攔 2.前端切版
