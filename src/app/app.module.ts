@@ -25,12 +25,14 @@ import { MatIconModule } from '@angular/material/icon';
 
 
 import { NgChartsModule } from 'ng2-charts';
+import { NewsListComponent } from './news-list/news-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CoinListComponent,
-    CoinDetailComponent
+    CoinDetailComponent,
+    NewsListComponent
   ],
   imports: [
     BrowserModule,
